@@ -6,7 +6,7 @@ export default function LengthSlider(props:any) {
         type="range" 
         className="form-range" 
         min="1" 
-        max="10" 
+        max="30" 
         step="1" 
         value={props.length}
         onChange = {(evt)=>props.setLength(evt.target.value)}

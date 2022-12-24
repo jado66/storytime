@@ -50,6 +50,8 @@ export default function Home() {
       
       const prompt = generatePrompt()
 
+      console.log("prompt: " +prompt)
+
       if (!prompt){
         return;
       }
@@ -103,12 +105,13 @@ export default function Home() {
           
           <h2 className="h4 text-center my-3">Story length</h2>
           
-          <div className="px-sm-5 w-50 mx-auto my-2">
+          <div className="px-sm-5 w-50 mx-auto my-2 flex-row d-flex">
             <LengthSlider
-              name={prompt.name} 
+              length={prompt.length} 
               setLength={(val:number)=>handlePromptChange('length',val)} 
               className = "form-control"  
             />
+            <span className="ms-3">{prompt.length}</span>
           </div>
           
 
