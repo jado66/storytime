@@ -78,7 +78,7 @@ export default function Home() {
         <h1 className="text-center">Story Generator</h1>
         <div className="card p-4 d-flex justify-content-center flex-column mt-3 shadow border-0">
           <h2 className="h4 text-center">Tell me a childrens story story about a</h2>
-          <div className="w-50 mx-auto my-2">
+          <div className="w-lg-50 px-sm-5 mx-auto my-2">
             <SubjectSelect 
               setSubject={(val:string)=>handlePromptChange('subject',val)} 
             />
@@ -86,7 +86,7 @@ export default function Home() {
             
           <h2 className="h4 text-center my-3">named</h2>
           
-          <div className="px-sm-5 w-50 mx-auto my-2">
+          <div className="px-sm-5 w-lg-50 mx-auto my-2">
             <NameInput
               name={prompt.name} 
               setName={(val:string)=>handlePromptChange('name',val)} 
@@ -96,7 +96,7 @@ export default function Home() {
           
           <h2 className="h4 text-center my-3">including a positive message about </h2>
           
-          <div className="w-50 mx-auto my-2">
+          <div className="w-lg-50 mx-auto my-2">
             <MessageSelect 
               setMessage={(val:string)=>handlePromptChange('message',val)} 
               className = "mx-sm-5"
@@ -105,7 +105,7 @@ export default function Home() {
           
           <h2 className="h4 text-center my-3">Story length</h2>
           
-          <div className="px-sm-5 w-50 mx-auto my-2 flex-row d-flex">
+          <div className="px-sm-5 w-lg-50 mx-auto my-2 flex-row d-flex">
             <LengthSlider
               length={prompt.length} 
               setLength={(val:number)=>handlePromptChange('length',val)} 
@@ -118,7 +118,7 @@ export default function Home() {
           <hr/>          
 
           <button 
-            className="btn btn-primary w-50 mt-2 mx-auto text-uppercase"
+            className="btn btn-primary w-lg-50 mt-2 mx-auto text-uppercase"
             onClick={generateStory}
           >
             Generate my story
@@ -128,7 +128,7 @@ export default function Home() {
         </>
         
         :
-        <div className="container px-lg-5 py-lg-4 py-4 d-flex">
+        <div className="container px-lg-5 py-lg-4 py-lg-4 d-flex">
           <div className="flex-grow-1 px-lg-5 py-lg-4 p-4 border-start border-end book-shadow story-pages h-100">
             <h1 className="text-center">{prompt.name} the {prompt.subject}</h1>
             <hr className="mt-4"/>  
