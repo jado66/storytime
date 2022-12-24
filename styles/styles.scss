@@ -1,0 +1,71 @@
+// Variable overrides first
+$dark: #0A0A0A;
+$enable-shadows: true;
+$prefix: "mo-";
+
+$hover-bg-dark: 3;
+$hover-fg-dark: .8;
+
+$hover-bg-light: .8;
+$hover-fg-light: 3;
+
+
+// Create your own map
+$custom-colors: (
+  "fg-dark":#00f2ff,
+  "bg-dark":#0A0A0A,
+  "a1-dark":#40a83e,
+  "a2-dark":#CFD186,
+  "a3-dark":#E3655B,
+  "fg-light":#00282a,
+  "bg-light":#f0e0e0,
+  "a1-light":#308d9a,
+  "a2-light":#8ED081,
+  "a3-light":#904E55,
+);
+
+// Merge the maps
+
+
+// Then import Bootstrap
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+$fg-dark: map-get($custom-colors , "fg-dark");
+$bg-dark: map-get($custom-colors , "bg-dark");
+$a1-dark: map-get($custom-colors , "a1-dark");
+$a2-dark: map-get($custom-colors , "a2-dark");
+$a3-dark: map-get($custom-colors , "a3-dark");
+
+$fg-light: map-get($custom-colors , "fg-light");
+$bg-light: map-get($custom-colors , "bg-light");
+$a1-light: map-get($custom-colors , "a1-light");
+$a2-light: map-get($custom-colors , "a2-light");
+$a3-light: map-get($custom-colors , "a3-light");
+
+
+.story-pages{
+  position: flex;
+	top: 10px;
+	background: url("https://i.imgur.com/0kjMcUe.png");
+	background-size: 1000px;
+	background-position: center right;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+  flex
+	// width: 50%;
+	height: auto;
+	// padding: 30px 80px 50px 80px;
+	z-index: 1;
+	filter: brightness(0.95) sepia(30%) saturate(80%);
+	border-radius: 30px;
+	height: 90vh;
+	
+	// overflow: auto;
+}
