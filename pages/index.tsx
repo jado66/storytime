@@ -1,9 +1,10 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import axios from 'axios'
 import SubjectSelect from "../components/SubjectSelect";
 import NameInput from "../components/NameInput";
 import MessageSelect from "../components/MessageSelect";
 import LengthSlider from "../components/LengthSlider";
+import ReactLoading from 'react-loading';
 
 export default function Home() {
   const [prompt, setPrompt] = useState(
@@ -25,18 +26,18 @@ export default function Home() {
   }
 
   // const [story, setStory] = useState<string[]|null>([null])
-  const [story, setStory] = useState<string[]|null>(
+  const [story, setStory] = useState<string[]|null>(null)
   
-  [
-"    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec est sed nunc molestie venenatis vel id ligula. Donec eu lorem felis. Pellentesque eget faucibus risus. Integer at leo vel ex ullamcorper sagittis. Sed pulvinar lacus diam, id faucibus nibh malesuada id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse lacinia ligula ipsum, ac luctus nisi placerat a. Ut venenatis lobortis tellus a luctus. Nulla sit amet leo faucibus nisi commodo consectetur ut in purus. Phasellus cursus egestas leo nec pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
-"Ut vitae ex mattis, mattis nulla eget, efficitur libero. Quisque facilisis, leo in aliquet volutpat, nisl nisl luctus mi, id aliquam felis turpis sed nunc. Vestibulum libero libero, hendrerit in lorem condimentum, blandit maximus tortor. Fusce metus risus, semper sit amet pulvinar eget, vulputate a neque. Nam eget fermentum tellus, in pretium est. Curabitur in nulla non mi laoreet cursus. Etiam fringilla mauris non vehicula porttitor. Nunc mattis lorem augue, sit amet imperdiet arcu pretium eu. Aliquam gravida ligula at elementum viverra. Phasellus eu nisl vel odio lobortis congue sed ut quam. Etiam dapibus in ipsum ut egestas.",
-"Fusce id vulputate lacus. Integer odio eros, vehicula at ornare vel, tempus vitae nisl. Maecenas id massa euismod, iaculis metus a, ornare odio. Duis enim dui, suscipit a nulla vitae, pellentesque suscipit libero. Integer viverra dapibus aliquet. Aenean condimentum lorem sed mi faucibus molestie. Sed sed quam pharetra, cursus nulla non, sagittis erat. Duis a lorem ac nunc gravida dictum id quis tellus.",
-"Aliquam erat volutpat. Vivamus congue fringilla pretium. Donec ipsum turpis, ultricies eu lorem ut, viverra laoreet velit. Etiam scelerisque lacus ut dui dapibus, a ornare ante convallis. Vivamus elementum tellus in velit semper, et aliquam mauris posuere. Etiam eget tincidunt elit, vel facilisis augue. Suspendisse eu dui et sem sollicitudin suscipit. Praesent nec lacinia eros. Nullam lacus odio, finibus ac tempus non, porttitor interdum massa. Sed a velit sagittis, venenatis turpis scelerisque, feugiat justo. Integer commodo metus quis turpis vehicula sollicitudin. Phasellus posuere fringilla leo, eu varius enim porta id. Nullam quis elementum turpis, vel condimentum enim. Donec vestibulum elit vel mauris ultrices, nec dictum eros hendrerit.",
-"Fusce placerat dolor at sapien dignissim rhoncus. Fusce faucibus sodales urna vitae ullamcorper. Nullam maximus orci id quam porta, ac pharetra ex dapibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sapien felis, consectetur at finibus sed, vehicula vel orci. Donec eget quam eget justo feugiat laoreet ac in diam. Vivamus vehicula tempus nisl, id congue enim lacinia posuere. Integer rutrum eros magna, nec molestie nibh dictum ac. Aenean ornare fermentum augue ut dignissim. Aliquam accumsan interdum elit, sed malesuada augue consequat a. Nunc dui leo, tincidunt sit amet magna vel, volutpat tempor nibh."  
-])
+//   [
+// "    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec est sed nunc molestie venenatis vel id ligula. Donec eu lorem felis. Pellentesque eget faucibus risus. Integer at leo vel ex ullamcorper sagittis. Sed pulvinar lacus diam, id faucibus nibh malesuada id. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse lacinia ligula ipsum, ac luctus nisi placerat a. Ut venenatis lobortis tellus a luctus. Nulla sit amet leo faucibus nisi commodo consectetur ut in purus. Phasellus cursus egestas leo nec pretium. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.",
+// "Ut vitae ex mattis, mattis nulla eget, efficitur libero. Quisque facilisis, leo in aliquet volutpat, nisl nisl luctus mi, id aliquam felis turpis sed nunc. Vestibulum libero libero, hendrerit in lorem condimentum, blandit maximus tortor. Fusce metus risus, semper sit amet pulvinar eget, vulputate a neque. Nam eget fermentum tellus, in pretium est. Curabitur in nulla non mi laoreet cursus. Etiam fringilla mauris non vehicula porttitor. Nunc mattis lorem augue, sit amet imperdiet arcu pretium eu. Aliquam gravida ligula at elementum viverra. Phasellus eu nisl vel odio lobortis congue sed ut quam. Etiam dapibus in ipsum ut egestas.",
+// "Fusce id vulputate lacus. Integer odio eros, vehicula at ornare vel, tempus vitae nisl. Maecenas id massa euismod, iaculis metus a, ornare odio. Duis enim dui, suscipit a nulla vitae, pellentesque suscipit libero. Integer viverra dapibus aliquet. Aenean condimentum lorem sed mi faucibus molestie. Sed sed quam pharetra, cursus nulla non, sagittis erat. Duis a lorem ac nunc gravida dictum id quis tellus.",
+// "Aliquam erat volutpat. Vivamus congue fringilla pretium. Donec ipsum turpis, ultricies eu lorem ut, viverra laoreet velit. Etiam scelerisque lacus ut dui dapibus, a ornare ante convallis. Vivamus elementum tellus in velit semper, et aliquam mauris posuere. Etiam eget tincidunt elit, vel facilisis augue. Suspendisse eu dui et sem sollicitudin suscipit. Praesent nec lacinia eros. Nullam lacus odio, finibus ac tempus non, porttitor interdum massa. Sed a velit sagittis, venenatis turpis scelerisque, feugiat justo. Integer commodo metus quis turpis vehicula sollicitudin. Phasellus posuere fringilla leo, eu varius enim porta id. Nullam quis elementum turpis, vel condimentum enim. Donec vestibulum elit vel mauris ultrices, nec dictum eros hendrerit.",
+// "Fusce placerat dolor at sapien dignissim rhoncus. Fusce faucibus sodales urna vitae ullamcorper. Nullam maximus orci id quam porta, ac pharetra ex dapibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam sapien felis, consectetur at finibus sed, vehicula vel orci. Donec eget quam eget justo feugiat laoreet ac in diam. Vivamus vehicula tempus nisl, id congue enim lacinia posuere. Integer rutrum eros magna, nec molestie nibh dictum ac. Aenean ornare fermentum augue ut dignissim. Aliquam accumsan interdum elit, sed malesuada augue consequat a. Nunc dui leo, tincidunt sit amet magna vel, volutpat tempor nibh."  
+// ])
 
   const [storyImage, setStoryImage] = useState(null)
-
+  const [loading, setLoading] = useState(false)
   const goBack = () => {
     setPrompt({
       name:"",
@@ -86,13 +87,22 @@ export default function Home() {
 
       console.log(JSON.stringify(data ))
       setStoryImage(data.result.data[0].url);
+      
       }
   , [prompt]); 
 
   const generateStory = () =>{
+    setLoading(true)
     generateStoryText()
     generateImage()
   }
+
+  useEffect(()=>{
+
+    if (storyImage){
+      setLoading(false)
+    }
+  }, [storyImage])
 
   const generateStoryText = useCallback(
     async () => {
@@ -122,7 +132,7 @@ export default function Home() {
   return (
     <div className="container px-lg-5 pt-5">
       {
-        !story ?
+        !story && !loading &&
         <>
         <h1 className="text-center">Story Generator</h1>
         <div className="card p-4 d-flex justify-content-center flex-column mt-3 shadow border-0">
@@ -175,53 +185,64 @@ export default function Home() {
         </div>
         
         </>
-        
-        :
-        <div className="container px-lg-5 py-lg-4 py-lg-4 d-flex">
-          <div className="flex-grow-1 px-lg-5 py-lg-4 p-4 border-start border-end book-shadow story-pages h-100">
-            <h1 className="text-center">{prompt.name} the {prompt.subject}</h1>
-            <hr className="mt-4"/>  
-
-            {
-              storyImage ?
-              <div className="w-100 d-flex my-4 justify-content-center" style={{minHeight:200}}>
-                <img className = "bg-info border border-dark rounded-3" src={storyImage}/>
-              </div>
-              
-              :
-              <div className="w-100 bg-info border border-dark rounded-3 my-4" style={{minHeight:200}}></div>
-
-            }
-
-
-            <div className="double-space fs-4">
-              {
-                story.map((ele, index)=>{
-                  return (
-                    // <StoryBlock 
-                    //   index = {index}
-                    //   key = {`p-${index}`}
-                    //   text = {ele}  
-                    // />   
-                          <p key={'p-'+index}>{ele}</p>
-                 
-                  )
-                })
-              }
-            </div>
-            <hr/>  
-            <div className="w-100 text-center">
-              <button 
-                className="btn btn-primary w-50 mt-2 mx-auto text-uppercase"
-                onClick={goBack}
-              >
-                Create a new story
-              </button>
-            </div>  
-          </div>
-        </div>
-
       }
+
+      {
+        loading &&
+        <div className="w-100 h-100 d-flex justify-content-center">
+          <ReactLoading type="bubbles" color={"black"} height={'20%'} width={'20%'} />
+        </div>
+      }
+        
+      {
+        story && !loading && 
+        <div className="container px-lg-5 py-lg-4 py-lg-4 d-flex">
+            <div className="flex-grow-1 px-lg-5 py-lg-4 p-4 border-start border-end book-shadow story-pages h-100">
+              <h1 className="text-center">{prompt.name} the {prompt.subject}</h1>
+              <hr className="mt-4"/>  
+
+              {
+                storyImage ?
+                <div className="w-100 d-flex my-4 justify-content-center" style={{minHeight:200}}>
+                  <img className = "bg-info border border-dark rounded-3" src={storyImage}/>
+                </div>
+                
+                :
+                <div className="w-100 bg-info border border-dark rounded-3 my-4" style={{minHeight:200}}></div>
+
+              }
+
+
+              <div className="double-space fs-4">
+                {
+                  story.map((ele, index)=>{
+                    return (
+                      // <StoryBlock 
+                      //   index = {index}
+                      //   key = {`p-${index}`}
+                      //   text = {ele}  
+                      // />   
+                            <p key={'p-'+index}>{ele}</p>
+                  
+                    )
+                  })
+                }
+              </div>
+              <hr/>  
+              <div className="w-100 text-center">
+                <button 
+                  className="btn btn-primary w-50 mt-2 mx-auto text-uppercase"
+                  onClick={goBack}
+                >
+                  Create a new story
+                </button>
+              </div>  
+            </div>
+        </div>
+      }
+        
+
+      
     </div>
   )
 }
