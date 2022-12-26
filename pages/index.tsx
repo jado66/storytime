@@ -130,7 +130,7 @@ export default function Home() {
   , [prompt]);
 
   return (
-    <div className="container px-lg-5 pt-5">
+    <div className="container px-lg-5 py-5">
       {
         !story && !loading &&
         <>
