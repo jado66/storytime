@@ -47,7 +47,8 @@ export default function MyStories(){
                     myStories?                
                     <div className="d-flex flex-sm-row flex-column border overflow-auto p-lg-5 p-1 h-100" style={{ overflowX:"auto"}}>
                         {
-                            myStories.map((story:any) =>{ // @ts-ignore 
+                            // @ts-ignore 
+                            myStories.map((story:any) =>{ 
                             return <FloatingBook
                                         title = {story.title}
                                         date = {story.creationDate}
