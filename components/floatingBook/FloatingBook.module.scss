@@ -1,0 +1,185 @@
+
+.bookContainer {
+    z-index: 1;
+    perspective:3000px;
+}
+
+.bookContainer .book {
+    position: relative;
+    display: block;
+    // height: 450px;
+    margin: 0 auto;
+    border-radius: 2px 4px 4px 2px;
+    background: linear-gradient(45deg,  #DAD5DC 0%, #f2ebf4 100%);
+    font-family: acumin-pro, sans-serif;
+    -webkit-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    -moz-box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    box-shadow: 13px 13px 8px 0px rgba(151, 146, 153,0.6);
+    font-weight: 400;
+    color: #2b2b2b;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    transition: transform .5s;
+}
+
+.bookContainer .book:hover {
+    -webkit-transform: rotate3d(0,1,0,35deg);
+    -moz-transform: rotate3d(0,1,0,35deg);
+    transform: rotate3d(0,1,0,35deg);
+}
+
+.bookContainer .book > div,
+.bookContainer .front > div {
+    display: block;
+    position: absolute;
+}
+
+
+.bookContainer .front {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    -moz-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    transition: transform .5s;
+    -webkit-transform: translate3d(0,0,20px);
+    -moz-transform: translate3d(0,0,20px);
+    transform: translate3d(0,0,20px);
+    z-index: 10;
+}
+
+.bookContainer .leftSide{
+    width: 40px;
+    left: -20px;
+    // height: 450px;
+    background-color: rgba(232,229,234);
+    -webkit-transform: rotate3d(0,1,0,-90deg);
+    -moz-transform: rotate3d(0,1,0,-90deg);
+    transform: rotate3d(0,1,0,-90deg);
+}
+
+.author{
+    font-family: acumin-pro, sans-serif;
+    font-weight: 400;
+    // position: absolute;
+    // top: 400px;
+    // left: 50px;
+    opacity: .8;
+}
+
+.bookContainer .front > div {
+    border-radius: 0 3px 3px 0;
+    box-shadow: 
+        inset 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookContainer .front:after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    bottom: 1px;
+    left: -1px;
+    width: 1px;
+}
+
+.bookContainer .cover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10px;
+    bottom: 0;
+    width: 3px;
+    background: rgba(0,0,0,0.1);
+    box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+}
+
+
+.bookContainer h2 {
+    // min-width: 450px;
+    // height: 40px;
+    color: #2b2b2b;
+    font-size: 15px;
+    line-height: 40px;
+    padding-right: 30px;
+    text-align: right;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: rotate(90deg) translateY(-40px);
+    -moz-transform: rotate(90deg) translateY(-40px);
+    transform: rotate(90deg) translateY(-40px);
+}
+
+// .cover {
+// //  background: linear-gradient(45deg,  #DAD5DC 0%, #f2ebf4 100%);
+// }
+
+
+.left-side h2 span:first-child {
+    font-weight: 400;
+    font-size: 13px;
+    padding-right: 40px;
+}
+
+.left-side h2 span:last-child{
+    font-family: acumin-pro, sans-serif;
+} 
+
+// 
+// Media queries
+// 
+
+// .bookContainer .book {
+//     // width: 400px;
+// }
+
+// .bookContainer h2 {
+//     min-width: 450px;
+// }
+
+// .bookContainer .front > div {
+//     width: 400px;
+// }
+
+
+
+@media (min-width: 576px) {
+   .bookContainer .front > div {
+        min-width: 400px;
+        }
+    .bookContainer{
+        min-width: 400px;
+        }
+        .bookContainer h2 {
+        min-width: 450px;
+    }
+
+}
+//     .bookContainer h2 {
+//         min-width: 350px;
+//     }
+    
+//     .bookContainer .front > div {
+//         width: 300px;
+//     }
+// }
+
+// @media (max-width: 599px) {
+//     .bookContainer .book {
+//         width: 400px;
+//     }
+    
+//     .bookContainer h2 {
+//         min-width: 450px;
+//     }
+    
+//     .bookContainer .front > div {
+//         width: 400px;
+//     }
+// }
