@@ -10,10 +10,9 @@ import useUser from '../hooks/user'
 
 
 
-export const UserContext = createContext({}) 
+export const UserContext = createContext<any>({}) 
 
 function MyApp({ Component, pageProps, session }: any) {
-  
   
   const user = useUser(session)    
  

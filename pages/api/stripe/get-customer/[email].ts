@@ -10,9 +10,14 @@ export default async function handler(
     const { email } = query;
     const stripe = await connectToStripe()
 
-    const customer = await stripe.customers.search({
-        query: `email:"${email}"`,
-      });
+    let customer = null
+
+    if (stripe){
+        customer = await stripe.customers.search({
+            query: `email:"${email}"`,
+          });
+    }
+
 
     res.status(200).json({ result: customer });
 }

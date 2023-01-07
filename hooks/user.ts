@@ -70,7 +70,7 @@ const getAccount = async (email:string) => {
 
 const useUser = (session:any) => {
   // destructuring asPath from next js useRouter hook to get the current path name
-    const [user, setUser] = useState<{}|User|null>(null)
+    const [user, setUser] = useState<any>(null)
 
     useEffect(()=>{
 

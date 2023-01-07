@@ -37,7 +37,7 @@ const Story = () => {
                 
                 <div className="container px-lg-5 py-lg-4 py-lg-4 d-flex">
                     <div className="flex-grow-1 px-lg-5 py-lg-4 p-4 border-start border-end book-shadow story-pages h-100">
-                    <h1 className="text-center">{prompt.name} the {prompt.subject}</h1>
+                    {/* <h1 className="text-center">{prompt.name} the {prompt.subject}</h1> */}
                     <hr className="mt-4"/>  
 
                     {
