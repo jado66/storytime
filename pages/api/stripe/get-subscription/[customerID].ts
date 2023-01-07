@@ -14,9 +14,9 @@ export default async function handler(
     let subscriptions = null
 
     if (customerID && stripe){
-        subscriptions = await stripe.subscriptions.list({ 
-        customer: customerID, 
-        status: "active" 
+        subscriptions = await stripe.subscriptions.list({ // @ts-ignore
+        customer: customerID, // @ts-ignore 
+        status: "active" // @ts-ignore 
       });
       res.status(200).json({ result: subscriptions });
 
