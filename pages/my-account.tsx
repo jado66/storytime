@@ -6,7 +6,7 @@ import { signOut } from "next-auth/react";
 import Link from "next/link";
 import ProtectedPage from "../components/util/ProtectedPage";
 
-export default function(){
+export default function MyAccount(){
 
     const {user} = useContext(UserContext)
     const [created, setCreated] = useState<null|string>(null)
