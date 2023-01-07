@@ -40,7 +40,7 @@ export default function MyAccount(){
                     
                     <Accordion className = 'mb-3' uniqueId = "SubDetails" header = "Subscription Details">
                         
-                        
+                   
                         {user?.subscription?.type === "base" &&
                             <>
                                 <span>ID: {user.subscription.id}</span>
@@ -65,7 +65,7 @@ export default function MyAccount(){
                                 </button>
                             </>
                         }
-                        {!user?.subscription || user?.subscription?.type === "none" &&
+                        {(!user.subscription || user?.subscription?.type === "none") &&
                             <>
                                 <Link href="/subscribe" className="btn btn-outline-dark mx-auto">
                                     Upgrade to paid Subscription
