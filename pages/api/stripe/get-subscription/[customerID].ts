@@ -11,8 +11,10 @@ export default async function handler(
 
     const stripe = await connectToStripe()
 
-    if (customerID){
-      const subscriptions = await stripe.subscriptions.list({ 
+    let subscriptions = null
+
+    if (customerID && stripe){
+        subscriptions = await stripe.subscriptions.list({ 
         customer: customerID, 
         status: "active" 
       });
