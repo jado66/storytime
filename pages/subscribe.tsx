@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import LoadingComponent from "../components/util/Loading"
 import { UserContext } from "./_app"
-
-export default function (){
+import Link from "next/link"
+export default function Subcribe (){
     
     const [isMonthly, setIsMonthly] = useState(true)
     const {user} = useContext(UserContext)    
@@ -42,12 +42,12 @@ export default function (){
                                 <li>Limited Story Generation</li>
                                 <li>You Can Upgrade Later</li>
                                 </ul>
-                                <a 
+                                <Link 
                                     href={"/"} 
                                     className="w-100 btn btn-lg btn-outline-dark"
                                 >
                                     Go To My Account
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ export default function (){
                                     <li>Cancel Whenever</li>
                                     <li>Earn Bonuses Through Reading</li>
                                     </ul>
-                                    <a 
+                                    <Link 
                                         href={
                                             isMonthly
                                             ?
@@ -80,7 +80,7 @@ export default function (){
                                         className="w-100 btn btn-lg btn-primary"
                                     >
                                         Sign Up Now
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

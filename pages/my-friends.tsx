@@ -1,7 +1,7 @@
 import BackArrow from "../components/util/backArrow";
 import ProtectedPage from "../components/util/ProtectedPage";
 
-export default function(){
+export default function MyFriends(){
     
     const friendsList = [
         {

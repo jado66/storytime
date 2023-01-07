@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react"
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./_app";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 import ProtectedPage from "../components/util/ProtectedPage";
 
 export default function(){
@@ -46,9 +47,9 @@ export default function(){
                                 <span>Created : {created}</span>
                                 <span>Subscription Type : {user.subscription.type}</span>
 
-                                <a href="/subscribe" className="btn btn-outline-dark mx-auto mb-3">
+                                <Link href="/subscribe" className="btn btn-outline-dark mx-auto mb-3">
                                     Upgrade to paid Subscription
-                                </a>
+                                </Link>
                                 <button className="btn btn-outline-dark mx-auto">
                                     Cancel Subscription
                                 </button>
@@ -66,9 +67,9 @@ export default function(){
                         }
                         {!user?.subscription || user?.subscription?.type === "none" &&
                             <>
-                                <a href="/subscribe" className="btn btn-outline-dark mx-auto">
+                                <Link href="/subscribe" className="btn btn-outline-dark mx-auto">
                                     Upgrade to paid Subscription
-                                </a>
+                                </Link>
                             </>
                         }
                         

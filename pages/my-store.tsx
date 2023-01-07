@@ -3,7 +3,7 @@ import FlipBook from "../components/test-books/FlipBook";
 import BackArrow from "../components/util/backArrow";
 import ProtectedPage from "../components/util/ProtectedPage";
 
-export default function(){
+export default function MyStore(){
 
     const [flip, setFlip] = useState(false)
 

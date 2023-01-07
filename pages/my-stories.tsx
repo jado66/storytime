@@ -5,7 +5,7 @@ import LoadingComponent from "../components/util/Loading";
 import ProtectedPage from "../components/util/ProtectedPage";
 import ScrollLoop from "../components/util/ScrollLoop";
 
-export default function(){
+export default function MyStories(){
     
     const [myStories, setMyStories] = useState(null)
 
