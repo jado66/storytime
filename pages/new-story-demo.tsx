@@ -51,7 +51,7 @@ export default function NewStoryDemo() {
     setStory(null)
   }
 
-  const saveStory = async (e) => {
+  const saveStory = async (e:any) => {
     e.preventDefault();
 
     // reset error and message

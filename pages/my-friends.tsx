@@ -1,4 +1,4 @@
-import BackArrow from "../components/util/backArrow";
+import BackArrow from "../components/util/BackArrow";
 import ProtectedPage from "../components/util/ProtectedPage";
 
 export default function MyFriends(){

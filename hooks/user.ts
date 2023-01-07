@@ -108,7 +108,8 @@ const useUser = (session:any) => {
             }
             
             setUser({
-                name: session.user.name,
+                 
+                name: session?.user?.name, // eslint-disable-line
                 email: session.user.email,
                 subscription: subscription,
                 tokens: 0, // Need to fetch
@@ -124,7 +125,7 @@ const useUser = (session:any) => {
         }
         else{
             console.log("none")
-          setUser({})
+          setUser({}) // eslint-disable-line
         }
       },[session])
 

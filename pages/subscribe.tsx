@@ -5,7 +5,7 @@ import Link from "next/link"
 export default function Subcribe (){
     
     const [isMonthly, setIsMonthly] = useState(true)
-    const {user} = useContext(UserContext)    
+    const {user} = useContext(UserContext)    // eslint-disable-line
     
     if (!user){
         return (<div className="w-100 h-100 d-flex justify-content-center">

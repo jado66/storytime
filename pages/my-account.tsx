@@ -8,7 +8,7 @@ import ProtectedPage from "../components/util/ProtectedPage";
 
 export default function MyAccount(){
 
-    const {user} = useContext(UserContext)
+    const {user} = useContext(UserContext)// eslint-disable-line
     const [created, setCreated] = useState<null|string>(null)
 
     useEffect(()=>{

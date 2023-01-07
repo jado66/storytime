@@ -6,7 +6,7 @@ import { useRouter } from "next/router"
 
 export default function SignIn({ providers }:any) {
   
-  const {user} = useContext(UserContext)
+  const {user} = useContext(UserContext)  // eslint-disable-line
   const router = useRouter()
 
   useEffect(()=>{

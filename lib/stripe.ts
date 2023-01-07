@@ -15,7 +15,7 @@ if (!STIRPE_CL) {
 
 export async function connectToStripe() {
     // check the cached.
-    const stripe = new Stripe(STIRPE_CL);
+    const stripe = new Stripe(STIRPE_CL); // eslint-disable-line
 
     return stripe
 

@@ -3,7 +3,6 @@ import FloatingBook from "../components/floatingBook/FloatingBook";
 import BackArrow from "../components/util/BackArrow";
 import LoadingComponent from "../components/util/Loading";
 import ProtectedPage from "../components/util/ProtectedPage";
-import ScrollLoop from "../components/util/ScrollLoop";
 
 export default function MyStories(){
     

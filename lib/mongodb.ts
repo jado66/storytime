@@ -33,7 +33,7 @@ export async function connectToDatabase() {
     };
 
     // Connect to cluster
-    let client = new MongoClient(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+    let client = new MongoClient(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }); // eslint-disable-line
     await client.connect();
     let db = client.db(MONGODB_DB);
 

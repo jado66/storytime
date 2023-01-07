@@ -26,7 +26,7 @@ async function getStories(req:any ,res: any){
         
         let stories:any = []
 
-        client.connect(err => {
+        client.connect((err:any) => {
 
             // const db = client.db("stories")
             
@@ -76,7 +76,7 @@ async function addStory(req:any, res:any) {
         const MONGODB_URI = process.env.MONGODB_URI;
         const client = new MongoClient(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
         
-            client.connect(err => {
+            client.connect((err: any) => {
 
                 // console.log("adding "+req.body)
 

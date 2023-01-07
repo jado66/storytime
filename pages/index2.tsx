@@ -4,9 +4,7 @@ import SubjectSelect from "../components/SubjectSelect";
 import NameInput from "../components/NameInput";
 import MessageSelect from "../components/MessageSelect";
 import LengthSlider from "../components/LengthSlider";
-import HTMLFlipBook from 'react-pageflip';
-import StoryBook from "../components/book/Book";
-import Book2 from "../components/book/Book2";
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoadingComponent from "../components/util/Loading";
@@ -55,7 +53,7 @@ export default function Home() {
     setStory(null)
   }
 
-  const saveStory = async (e) => {
+  const saveStory = async (e:any) => {
     e.preventDefault();
 
     // reset error and message
