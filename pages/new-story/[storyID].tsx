@@ -10,7 +10,7 @@ const Story = () => {
   
     const [hasSaved, setHasSaved] = useState(false)
 
-    const [prompt,setPrompt] = useState(null)
+    const [prompt,setPrompt] = useState<any>(null)
 
     const [story, setStory] = useState<string[]|null>(null)
     const [storyImage, setStoryImage] = useState(null)
@@ -174,6 +174,10 @@ const Story = () => {
     
       }, [storyImage])
     
+    if (!prompt){
+        return null
+    }
+
 
     return (
         <ProtectedPage>
