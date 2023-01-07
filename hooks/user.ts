@@ -68,7 +68,7 @@ const getAccount = async (email:string) => {
     friends: string[]
   }
 
-const useUser = (session) => {
+const useUser = (session:any) => {
   // destructuring asPath from next js useRouter hook to get the current path name
     const [user, setUser] = useState(null)
 
