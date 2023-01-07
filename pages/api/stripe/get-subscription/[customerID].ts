@@ -12,9 +12,9 @@ export default async function handler(
     const stripe = await connectToStripe()
 
     if (customerID){
-      const subscriptions = await stripe.subscriptions.list({ // eslint-disable-line
-        customer: customerID, // eslint-disable-line
-        status: "active" // eslint-disable-line
+      const subscriptions = await stripe.subscriptions.list({ 
+        customer: customerID, 
+        status: "active" 
       });
       res.status(200).json({ result: subscriptions });
 
