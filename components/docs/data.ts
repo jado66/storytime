@@ -202,6 +202,29 @@ export const animalOptions: readonly AnimalOption[] = [
   { value: "Buffalo", label: "Buffalo", animal: "#00B8D9" }
 ].sort((a, b) => (a.value > b.value ? 1 : -1));
 
+export interface ThingsOption {
+  readonly value: string;
+  readonly label: string;
+}
+
+export const thingsOptions: readonly ThingsOption[] = [
+  { value: "Train", label: "Train" },
+{ value: "Doll", label: "Doll" },
+{ value: "Tree", label: "Tree" },
+{ value: "Car", label: "Car" },
+{ value: "Truck", label: "Truck" },
+{ value: "Tractor", label: "Tractor" },
+{ value: "Airplane", label: "Airplane" },
+{ value: "Flower", label: "Flower" },
+{ value: "Toy", label: "Toy" },
+{ value: "Snowman", label: "Snowman" },
+{ value: "Tugboat", label: "Tugboat" },
+{ value: "Boat", label: "Boat" },
+{ value: "School bus", label: "School Bus" },
+{ value: "Stuffed Animal", label: "Stuffed Animal" },
+{ value: "Blanket", label: "Blanket" },
+].sort((a, b) => (a.value > b.value ? 1 : -1));
+
 export interface PeopleOption {
   readonly value: string;
   readonly label: string;
@@ -303,7 +326,7 @@ export const peopleOptions: readonly PeopleOption[] = [
 { value: "Travel guide", label: "Travel guide" },
 { value: "Saleswoman", label: "Saleswoman" },
 { value: "Salesman", label: "Salesman" }
-];
+].sort((a, b) => (a.value > b.value ? 1 : -1));
 
 export interface StateOption {
   readonly value: string;

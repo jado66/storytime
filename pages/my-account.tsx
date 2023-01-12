@@ -25,13 +25,13 @@ export default function MyAccount(){
                 <BackArrow/>
                 <h1 className="text-center">My Account</h1>
 
-                
+                <hr/>
                 <div className="col-lg-6">
                     <Accordion className = 'mb-3' uniqueId = "AccDetails" header = "Account Details">
-                        <span>Username: {user?.name}</span>
-                        <span>Email: {user?.email}</span>
-                        <span>Number of Stories Created: {user?.tokens}</span>
-                        <span>Number of friends: {user?.friends?.length}</span>
+                        <span className="mb-1">Username: {user?.name}</span>
+                        <span className="mb-1">Email: {user?.email}</span>
+                        <span className="mb-1">Number of Stories Created: {user?.tokens}</span>
+                        <span className="mb-1">Number of friends: {user?.friends?.length}</span>
 
                         
                         {/* <span>{JSON.stringify(account, null, 4)}</span> */}
@@ -43,24 +43,28 @@ export default function MyAccount(){
                    
                         {user?.subscription?.type === "base" &&
                             <>
-                                <span>ID: {user.subscription.id}</span>
-                                <span>Created : {created}</span>
-                                <span>Subscription Type : {user.subscription.type}</span>
+                                <span className="mb-1">ID: {user.subscription.id}</span>
+                                <span className="mb-1">Created : {created}</span>
+                                <span className="mb-1">Subscription Type : {user.subscription.type}</span>
 
-                                <Link href="/subscribe" className="btn btn-outline-dark mx-auto mb-3">
+
+                                <hr className="my-3"/>
+
+                                <Link href="/subscribe" className="btn btn-outline-dark mx-auto mb-3 w-100">
                                     Upgrade to paid Subscription
                                 </Link>
-                                <button className="btn btn-outline-dark mx-auto">
+                                <button className="btn btn-outline-dark mx-auto w-100">
                                     Cancel Subscription
                                 </button>
                             </>
                         }
                         {user?.subscription?.type === "pro" &&
                             <>
-                                <span>ID: {user.subscription.id}</span>
-                                <span>Created : {created}</span>
-                                <span>Subscription Type : {user.subscription.type}</span>
-                                <button className="btn btn-outline-dark mx-auto">
+                                <span className="mb-1">ID: {user.subscription.id}</span>
+                                <span className="mb-1">Created : {created}</span>
+                                <span className="mb-1">Subscription Type : {user.subscription.type}</span>
+                                <hr className="my-3"/>
+                                <button className="btn btn-outline-dark mx-auto w-100">
                                     Cancel Subscription
                                 </button>
                             </>
@@ -68,7 +72,7 @@ export default function MyAccount(){
                         {(!user?.subscription || user?.subscription?.type === "none") &&
                             <>
                                 {JSON.stringify(user?.subscription)}
-                                <Link href="/subscribe" className="btn btn-outline-dark mx-auto">
+                                <Link href="/subscribe" className="mt-3 btn btn-outline-dark mx-auto w-100">
                                     Upgrade to paid Subscription
                                 </Link>
                             </>

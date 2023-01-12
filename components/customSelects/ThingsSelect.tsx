@@ -2,8 +2,8 @@ import React from "react";
 
 import Select from "react-select";
 import {
-  AnimalOption,
-  animalOptions,
+  ThingsOption,
+  thingsOptions,
 } from "../docs/data";
 import { sharedStyles } from "./sharedStyles";
 
@@ -31,12 +31,12 @@ const reactSelectStyles = {
 
 export default function ThingsSelect(props: any) {
   return (
-    <Select<AnimalOption, false>
+    <Select<ThingsOption, false>
         styles={reactSelectStyles}
         placeholder = {"Things"}
         isClearable = {true}
-        options={animalOptions}
-        onChange={(opt: AnimalOption | null) => {
+        options={thingsOptions}
+        onChange={(opt: ThingsOption | null) => {
             props.setSubject(opt?.value);
         }}
     />

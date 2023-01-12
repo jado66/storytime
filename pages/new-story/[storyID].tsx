@@ -145,6 +145,9 @@ const Story = () => {
     
     useEffect(()=>{
         const promptObj = localStorage.getItem("prompt")
+
+        console.log(JSON.stringify(promptObj))
+
         if (promptObj){
             setPrompt(JSON.parse(promptObj))
         }

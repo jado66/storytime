@@ -58,7 +58,7 @@ export default function Home() {
     });
   }
 
-  const createPrompt = () =>{
+  const createPromptText = () =>{
     let promptText = "Tell me a "
 
     if (prompt.extras?.storyLength){
@@ -68,13 +68,13 @@ export default function Home() {
       promptText += prompt.extras?.mood + " "
     }
     
-    promptText += "story"
+    promptText += "children's story"
     
     if (prompt.extras?.style){
       promptText += " in the style of " + prompt.extras?.style
     }
 
-    promptText += " starring a "
+    promptText += " about a "
 
     if (prompt.extras?.adjective){
       promptText += prompt.extras?.adjective + " "
@@ -97,7 +97,7 @@ export default function Home() {
       return;
     }
 
-    const promptText = createPrompt()
+    const promptText = createPromptText()
     const promptObj = {
       promptText: promptText,
       promptJSON: prompt
@@ -149,36 +149,15 @@ export default function Home() {
           onChange={(evt)=>handleExtraChange("mood",evt.target.value)}
         >
           <option value={"null"}>- Mood -</option>
-          <option>anxious</option>	        
-          <option>calm</option>
-          <option>cheerful</option>
-          <option>depressing</option>
-          <option>eerie</option>
-          <option>festive</option>
-          <option>foreboding</option>
-          <option>frightening</option>
-          <option>frustrated</option>
-          <option>hopeless</option>
-          <option>humorous</option>
-          <option>idyllic</option>
-          <option>joyful</option>
-          <option>light-hearted</option>
-          <option>lonely</option>
-          <option>melancholic</option>
-          <option>ominous</option>
-          <option>optimistic</option>
-          <option>panicked</option>
-          <option>peaceful</option>
-          <option>pensive</option>
-          <option>pessimistic</option>
-          <option>reflective</option>
-          <option>restless</option>
-          <option>romantic</option>
+          <option>adventurous</option>	        
+          <option>happy</option>
           <option>sad</option>
-          <option>sentimental</option>
-          <option>stressed</option>
-          <option>tense</option>
-          <option>uneasy</option>       
+          <option>scary</option>
+          <option>funny</option>  
+          <option>hilarious</option>                
+          <option>playful</option>
+          <option>stressful</option>
+          <option>suspeseful</option>
         </select>)
     }
     <span> story</span>
@@ -209,7 +188,7 @@ export default function Home() {
      */}
      
     <br/>
-    {"starring a "}
+    {"about a "}
     {
       showExtras.adjective && (
         <select 
@@ -219,232 +198,84 @@ export default function Home() {
           <option value={"null"}>- Adjective -</option>
           <option>adorable</option>
           <option>adventurous</option>
-          <option>aggressive</option>
-          <option>agreeable</option>
-          <option>alert</option>
-          <option>alive</option>
-          <option>amused</option>
+          <option>amazing</option>
           <option>angry</option>
-          <option>annoyed</option>
           <option>annoying</option>
-          <option>anxious</option>
-          <option>arrogant</option>
-          <option>ashamed</option>
-          <option>attractive</option>
-          <option>average</option>
-          <option>awful</option>
           <option>bad</option>
           <option>beautiful</option>
-          <option>better</option>
-          <option>bewildered</option>
-          <option>black</option>
-          <option>bloody</option>
-          <option>blue</option>
-          <option>blue-eyed</option>
-          <option>blushing</option>
-          <option>bored</option>
-          <option>brainy</option>
           <option>brave</option>
           <option>breakable</option>
           <option>bright</option>
-          <option>busy</option>
-          <option>calm</option>
           <option>careful</option>
           <option>cautious</option>
           <option>charming</option>
           <option>cheerful</option>
-          <option>clean</option>
-          <option>clear</option>
           <option>clever</option>
-          <option>cloudy</option>
           <option>clumsy</option>
           <option>colorful</option>
-          <option>combative</option>
-          <option>comfortable</option>
-          <option>concerned</option>
-          <option>condemned</option>
           <option>confused</option>
           <option>cooperative</option>
           <option>courageous</option>
           <option>crazy</option>
           <option>creepy</option>
-          <option>crowded</option>
-          <option>cruel</option>
           <option>curious</option>
           <option>cute</option>
           <option>dangerous</option>
-          <option>dark</option>
-          <option>dead</option>
-          <option>defeated</option>
-          <option>defiant</option>
           <option>delightful</option>
-          <option>depressed</option>
-          <option>determined</option>
-          <option>different</option>
-          <option>difficult</option>
-          <option>disgusted</option>
-          <option>distinct</option>
-          <option>disturbed</option>
+          <option>dirty</option>
           <option>dizzy</option>
-          <option>doubtful</option>
-          <option>drab</option>
-          <option>dull</option>
-          <option>eager</option>
-          <option>easy</option>
-          <option>elated</option>
-          <option>elegant</option>
           <option>embarrassed</option>
           <option>enchanting</option>
-          <option>encouraging</option>
-          <option>energetic</option>
-          <option>enthusiastic</option>
-          <option>envious</option>
-          <option>evil</option>
           <option>excited</option>
           <option>expensive</option>
-          <option>exuberant</option>
           <option>fair</option>
-          <option>faithful</option>
           <option>famous</option>
           <option>fancy</option>
           <option>fantastic</option>
-          <option>fierce</option>
-          <option>filthy</option>
-          <option>fine</option>
           <option>foolish</option>
           <option>fragile</option>
-          <option>frail</option>
-          <option>frantic</option>
           <option>friendly</option>
-          <option>frightened</option>
           <option>funny</option>
-          <option>gentle</option>
-          <option>gifted</option>
-          <option>glamorous</option>
-          <option>gleaming</option>
-          <option>glorious</option>
           <option>good</option>
           <option>gorgeous</option>
-          <option>graceful</option>
-          <option>grieving</option>
-          <option>grotesque</option>
           <option>grumpy</option>
           <option>handsome</option>
           <option>happy</option>
           <option>healthy</option>
           <option>helpful</option>
-          <option>helpless</option>
           <option>hilarious</option>
           <option>homeless</option>
-          <option>homely</option>
-          <option>horrible</option>
           <option>hungry</option>
-          <option>hurt</option>
-          <option>ill</option>
-          <option>important</option>
-          <option>impossible</option>
-          <option>inexpensive</option>
-          <option>innocent</option>
-          <option>inquisitive</option>
-          <option>itchy</option>
           <option>jealous</option>
-          <option>jittery</option>
           <option>jolly</option>
-          <option>joyous</option>
           <option>kind</option>
           <option>lazy</option>
-          <option>light</option>
-          <option>lively</option>
           <option>lonely</option>
-          <option>long</option>
-          <option>lovely</option>
           <option>lucky</option>
           <option>magnificent</option>
-          <option>misty</option>
-          <option>modern</option>
-          <option>motionless</option>
-          <option>muddy</option>
-          <option>mushy</option>
           <option>mysterious</option>
-          <option>nasty</option>
-          <option>naughty</option>
-          <option>nervous</option>
           <option>nice</option>
-          <option>nutty</option>
           <option>obedient</option>
-          <option>obnoxious</option>
-          <option>odd</option>
-          <option>old-fashioned</option>
-          <option>open</option>
-          <option>outrageous</option>
-          <option>outstanding</option>
-          <option>panicky</option>
           <option>perfect</option>
-          <option>plain</option>
           <option>pleasant</option>
-          <option>poised</option>
           <option>poor</option>
           <option>powerful</option>
-          <option>precious</option>
           <option>prickly</option>
           <option>proud</option>
-          <option>putrid</option>
-          <option>puzzled</option>
-          <option>quaint</option>
-          <option>real</option>
-          <option>relieved</option>
-          <option>repulsive</option>
           <option>rich</option>
-          <option>scary</option>
           <option>selfish</option>
           <option>shiny</option>
           <option>shy</option>
           <option>silly</option>
           <option>sleepy</option>
-          <option>smiling</option>
-          <option>smoggy</option>
-          <option>sore</option>
           <option>sparkling</option>
-          <option>splendid</option>
-          <option>spotless</option>
-          <option>stormy</option>
-          <option>strange</option>
-          <option>stupid</option>
-          <option>successful</option>
-          <option>super</option>
           <option>talented</option>
-          <option>tame</option>
-          <option>tasty</option>
-          <option>tender</option>
-          <option>tense</option>
-          <option>terrible</option>
           <option>thankful</option>
           <option>thoughtful</option>
-          <option>thoughtless</option>
           <option>tired</option>
-          <option>tough</option>
-          <option>troubled</option>
-          <option>ugliest</option>
           <option>ugly</option>
-          <option>uninterested</option>
-          <option>unsightly</option>
           <option>unusual</option>
-          <option>upset</option>
-          <option>uptight</option>
-          <option>vast</option>
-          <option>victorious</option>
-          <option>vivacious</option>
-          <option>wandering</option>
-          <option>weary</option>
-          <option>wicked</option>
-          <option>wide-eyed</option>
           <option>wild</option>
-          <option>witty</option>
-          <option>worried</option>
-          <option>worrisome</option>
-          <option>wrong</option>
-          <option>zany</option>
-          <option>zealous</option>
         </select>
       )
     }

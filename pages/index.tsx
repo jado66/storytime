@@ -6,7 +6,7 @@ import { signIn, useSession } from "next-auth/react";
 
 export default function Home(){
     
-    const showStore = true;
+    const showStore = false;
 
     return(
         <ProtectedPageWithAlt
@@ -27,7 +27,7 @@ export default function Home(){
 
                 <h1 className="text-center">Story Creator</h1>
                 
-                <div className="text-center flex-lg-row flex-column d-flex justify-content-center py-4 mt-5">
+                <div className="text-center flex-lg-row flex-column d-flex justify-content-around py-4 mt-5">
                     <Link className="" href = {"new-story"}>
                         <CircleImage
                             bg = "bg-danger"
@@ -44,14 +44,14 @@ export default function Home(){
                         />
                         <h3 className="mt-lg-4 mt-2">My Stories</h3>
                     </Link>
-                    <Link className="" href = {"my-friends"}>
+                    {/* <Link className="" href = {"my-friends"}>
                         <CircleImage 
                             bg = "bg-info"
                             src = "/friends.png"
                             alt = 'My Friends Image'
                         />
                         <h3 className="mt-lg-4 mt-2">My Friends</h3>
-                    </Link>
+                    </Link> */}
 
                     {
                         showStore && 
@@ -86,14 +86,14 @@ const CircleImage = (props:any) =>{
         <div 
             className={"mt-lg-0 mt-5 p-5 border border-dark rounded-circle mx-auto " + props.bg}
             style = {{
-                maxHeight:"250px", 
-                maxWidth:"250px",
+                maxHeight:"350px", 
+                maxWidth:"350px",
             }}
         >
             <div className="position-relative h-100 w-100" 
                 style = {{
-                    minHeight:"125px", 
-                    minWidth:"125px",
+                    minHeight:"225px", 
+                    minWidth:"225px",
                 }}
             >   
                 <Image 
