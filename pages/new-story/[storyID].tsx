@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState, useCallback } from 'react'
 import BackArrow from '../../components/util/BackArrow'
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import LoadingComponent from '../../components/util/Loading';
 import ProtectedPage from '../../components/util/ProtectedPage';
 const Story = () => {
@@ -24,7 +26,7 @@ const Story = () => {
     
     const generateImagePrompt = () =>{
     
-        return (`A cute children's image of a ${prompt.subject}`)
+        return (`A cute children's image of a ${prompt.promptJSON.subject}`)
     }
 
     
@@ -60,26 +62,16 @@ const Story = () => {
         }
     , [prompt]); 
 
-    const generateStoryPrompt = () =>{
-    
-        if (!prompt)
-            return
-
-        if (!prompt?.name || !prompt?.subject || !prompt?.message ){ // eslint-disable-line
-          return null
-        }
-        
-        return `Can create me a ${prompt.length} paragraph children's story about a ${prompt.subject.toLowerCase()} named ${prompt.name} with a hidden message about ${prompt.message}` // eslint-disable-line
-      }
+ 
 
     const generateStoryText = useCallback(
         async () => {
           
-          const prompt = generateStoryPrompt()
+          const promptText = prompt.promptText
     
           // console.log("prompt: " +prompt)
     
-          if (!prompt){
+          if (!promptText){
             return;
           }
           // setCompletion('Loading...');
@@ -88,7 +80,7 @@ const Story = () => {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ prompt: prompt }),
+            body: JSON.stringify({ prompt: promptText }),
           });
           const data = await response.json();
     
@@ -118,15 +110,14 @@ const Story = () => {
             return
         }
 
-        if (!prompt?.name || !prompt?.subject){ // eslint-disable-line
-            return
-        }
-
         // post structure
         let storyObj = {
             _id: storyID,
             picture : storyImage,
-            title: `${prompt.name} the ${prompt.subject}`, // eslint-disable-line
+            title: `${(prompt?.promptJSON?.name?prompt.promptJSON.name+" ":"")}`+
+                    "The " +
+                    `${(prompt?.promptJSON?.adjective?prompt.promptJSON.adjective+" ":"")}`+
+                    prompt?.promptJSON?.subject,
             text: story, 
             creationDate: new Date().toISOString(),
             color: random_color
@@ -200,7 +191,19 @@ const Story = () => {
                 <div className="container px-lg-5 py-lg-4 py-lg-4 d-flex">
                     <div className="flex-grow-1 px-lg-5 py-lg-4 p-4 border-start border-end book-shadow story-pages h-100">
                     {/*  // eslint-disable-next-line */}
-                    <h1 className="text-center">{prompt.name} the {prompt.subject}</h1> 
+                    
+                    <h1 className="text-center">
+                        {
+                            prompt?.promptJSON?.name &&
+                            <span>{prompt.promptJSON.name+ " "}</span>
+                        }
+                        The 
+                        {
+                            prompt?.promptJSON?.adjective &&
+                            <span>{" "+prompt.promptJSON.adjective}</span>
+                        }
+                        {" "+prompt.promptJSON.subject}</h1> 
+
                     <hr className="mt-4"/>  
 
                     {

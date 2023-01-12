@@ -259,3 +259,20 @@ $a3-light: map-get($custom-colors , "a3-light");
       }
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .select-group{
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .select-group > button {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  
+}

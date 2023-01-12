@@ -18,6 +18,7 @@ export default function Subcribe (){
         <div className="container m-5 d-flex flex-column ">
             
 
+                {/* {JSON.stringify(user)} */}
 
             
                 <div className="btn-group mx-auto mb-3" aria-label="Basic radio toggle button group">
@@ -26,8 +27,9 @@ export default function Subcribe (){
                 </div>
 
             <div className="row row-cols-1 row-cols-md-3 mb-3 text-center justify-content-center">
+                
                 {
-                    !( !user && user?.subscription?.type !== "none") &&
+                    (!user?.name || user?.subscription.type === "none") &&
                     <div className="col">
                         <div className="card mb-4 rounded-3 shadow-sm">
                             <div className="card-header py-3">

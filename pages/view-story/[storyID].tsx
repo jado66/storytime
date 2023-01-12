@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState, useCallback } from 'react'
 import BackArrow from '../../components/util/BackArrow'
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import LoadingComponent from '../../components/util/Loading';
 const Story = () => {
     const router = useRouter()

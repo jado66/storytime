@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ProtectedPageWithAlt from "../components/util/ProtectedPageWithAlt";
 import UserLink from "../components/util/UserLink";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 
 export default function Home(){
     
@@ -24,6 +24,7 @@ export default function Home(){
 
             <div className="container py-5 d-flex flex-column">
                 <UserLink/>
+
                 <h1 className="text-center">Story Creator</h1>
                 
                 <div className="text-center flex-lg-row flex-column d-flex justify-content-center py-4 mt-5">
@@ -74,7 +75,7 @@ export default function Home(){
 
 const CircleDiv = (props:any) => {
     return (
-        <div className="mx-5 circle bg-light border"  style = {{minHeight:"200px", minWidth:"200px"}}>
+        <div className="circle bg-light border"  style = {{minHeight:"200px", minWidth:"200px"}}>
             {props.children}
         </div>
     )    
@@ -83,7 +84,7 @@ const CircleDiv = (props:any) => {
 const CircleImage = (props:any) =>{
     return(
         <div 
-            className={"mx-lg-5 mt-lg-0 mt-5 p-5 border border-dark rounded-circle mx-auto " + props.bg}
+            className={"mt-lg-0 mt-5 p-5 border border-dark rounded-circle mx-auto " + props.bg}
             style = {{
                 maxHeight:"250px", 
                 maxWidth:"250px",
@@ -91,8 +92,8 @@ const CircleImage = (props:any) =>{
         >
             <div className="position-relative h-100 w-100" 
                 style = {{
-                    minHeight:"150px", 
-                    minWidth:"150px",
+                    minHeight:"125px", 
+                    minWidth:"125px",
                 }}
             >   
                 <Image 

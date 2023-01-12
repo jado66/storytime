@@ -65,8 +65,9 @@ export default function MyAccount(){
                                 </button>
                             </>
                         }
-                        {(!user.subscription || user?.subscription?.type === "none") &&
+                        {(!user?.subscription || user?.subscription?.type === "none") &&
                             <>
+                                {JSON.stringify(user?.subscription)}
                                 <Link href="/subscribe" className="btn btn-outline-dark mx-auto">
                                     Upgrade to paid Subscription
                                 </Link>
