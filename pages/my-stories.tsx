@@ -50,6 +50,7 @@ export default function MyStories(){
                             // @ts-ignore 
                             myStories.map((story:any) =>{ 
                             return <FloatingBook
+                                        id = {story["_id"]}
                                         title = {story.title}
                                         date = {story.creationDate}
                                         key = {story["_id"]}

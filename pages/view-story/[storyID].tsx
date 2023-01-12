@@ -9,9 +9,44 @@ const Story = () => {
     const router = useRouter()
     const { account, storyID } = router.query
   
-    const [story, setStory] = useState<string[]|null>(null)
-    const [storyImage, setStoryImage] = useState(null)
+    const [story, setStory] = useState<any>(null)
+    // const [storyImage, setStoryImage] = useState(null)
     const [loading, setLoading] = useState(false)
+
+    const getStory = async () => {
+        
+        
+        // get the post
+
+        const url = `/api/mongodb/story/${storyID}`
+
+        console.log(url)
+
+        let response = await fetch(url, {
+            method: 'GET'
+        });
+
+        // get the data
+        let data = await response.json();
+
+        // get the data
+
+        if (data.success) {
+            // reset the fields
+            // set the message
+            // alert(JSON.stringify(data))
+            // alert(JSON.stringify(data.stories[0]))
+            setStory(data.stories[0])
+            // return data.stories;
+        } else {
+            // set the error
+            return console.log(data.message);
+        }
+    };
+
+    useEffect(()=>{
+        getStory()
+    },[])
 
     useEffect(()=>{
 
@@ -24,8 +59,7 @@ const Story = () => {
         <div className="container gx-0 py-5 h-100 d-flex flex-column">
             <ToastContainer />
 
-            <BackArrow href = "../../new-story"/>
-
+            <BackArrow href = "../../my-stories"/>
 
             {
                 loading &&
@@ -43,9 +77,9 @@ const Story = () => {
                     <hr className="mt-4"/>  
 
                     {
-                        storyImage ?
+                        story?.picture ?
                         <div className="w-100 d-flex my-4 justify-content-center" style={{minHeight:200}}>
-                        <img className = "bg-info border border-dark rounded-3" src={"data:image/jpeg;base64,"+storyImage}/>
+                        <img className = "bg-info border border-dark rounded-3" src={"data:image/jpeg;base64,"+story?.picture}/>
                         </div>
                         
                         :
@@ -55,8 +89,9 @@ const Story = () => {
 
 
                     <div className="double-space fs-4">
+                        
                         {
-                        story.map((ele, index)=>{
+                         story?.text && story?.text.map((ele:any, index:number)=>{
                             return (
                             // <StoryBlock 
                             //   index = {index}
